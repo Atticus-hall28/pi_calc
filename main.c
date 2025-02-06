@@ -16,7 +16,6 @@ int main(int argc, char *argv[])
 
     // Use strings for initialization to avoid precision loss
     const char *init_a = "1.0";
-    const char *init_b = "0.707106781186547524400844362104849039284835937688474036588339868995366239231";
     const char *init_t = "0.25";
     const char *init_p = "1.0";
 
