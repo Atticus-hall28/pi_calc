@@ -59,7 +59,14 @@ int main(int argc, char *argv[])
 
         // p *= 2
         mpf_mul_ui(p, p, 2);
+
+        if(i % (int)round((double)iterations/100) == 0)
+        {
+            printf("%d%% \n",(int)(ceil((double)i/iterations*100)));
+        }
+
     }
+    printf("\nall %d iterations processed\n",iterations);
 
     // pi = (a + b)^2 / (4 * t)
     mpf_add(result, a, b);
@@ -67,13 +74,16 @@ int main(int argc, char *argv[])
     mpf_mul_ui(temp, t, 4);
     mpf_div(pi, result, temp);
 
-        file = fopen("output.txt", "w");
+    file = fopen("output.txt", "w");
     if (file == NULL) {
         fprintf(stderr, "Error opening file!\n");
         return 1;
     }
     
-    gmp_fprintf(file,"%Ff",pi);
+    // Specify the number of digits to print
+    int digits = bits * log10(2) / 10; // Convert bits to decimal digits
+    printf("writing %d digits",digits);
+    gmp_fprintf(file, "%.*Ff\n", digits, pi);
     
     fclose(file);
 

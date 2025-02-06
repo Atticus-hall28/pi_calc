@@ -27,6 +27,6 @@ def find_first_difference(file1, file2):
         print("The numbers are identical.")
 
 if __name__ == "__main__":
-    file1 = 'pi.txt'
+    file1 = 'output.txt'
     file2 = 'truepi.txt'
     find_first_difference(file1, file2)
